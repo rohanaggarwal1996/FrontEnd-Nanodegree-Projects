@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Neighborhood Map</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="styles.css" rel="stylesheet">
+<script src="knockout.js"></script>
+<script src="jquery-3.2.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="head"></div>
+    <div><div class="option-box">
+      <h2>FrontEnd NanoDegree</h2><h2> NeighborHood Map</h2>
+    </div></div></div>
+    <hr>
+        <div>
+          <h3>Enter The Place from The Below List To <br> Find the Place Or <br>Click on the place to target it.</h3>
+                    <div>
+                        <input type="text" class="searchtextbox" placeholder="Enter The Name of Mall" data-bind="value: enteredText, valueUpdate: 'afterkeydown', event: {keyup: searchText}">
+                    </div>
+            <ul data-bind="foreach:markers">
+                <li class="list">
+                    <a  data-bind="visible:show, event:{click:$parent.display},text:title"></a>
+                </li>
+            </ul>
+        </div><hr>
+        <div><h3>To Show The Markers Click On<br> Show Listings Button Or <br>If You Want To Hide The Markers<br> Click On Hide Listings Button</h3>
+          <button data-bind="value:showListings">Show Listings</button>
+          <button data-bind="value:hideListings">Hide Listings</button>
+        </div>
+  <div id="map"></div>
+<script src="app.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&v=3&callback=initMap" onerror="googleError()" async defer></script>
+</body>
+</html>
